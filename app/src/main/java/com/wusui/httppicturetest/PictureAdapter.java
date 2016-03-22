@@ -31,7 +31,8 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(final PictureAdapter.MyViewHolder holder, int position) {
-        holder.imageView.setImageBitmap(mbitmaps.get(position));
+        if (mbitmaps.get(position)!=null)
+            holder.imageView.setImageBitmap(mbitmaps.get(position));
 //        if (mOnItemClickListener != null){
 //            holder.imageView.setOnClickListener(new View.OnClickListener() {
 //                @Override

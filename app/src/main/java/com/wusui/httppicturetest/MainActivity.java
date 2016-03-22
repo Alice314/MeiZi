@@ -41,10 +41,11 @@ public class MainActivity extends AppCompatActivity {
                     File file = new File(Environment.getExternalStorageDirectory(),"girl.jpg");
                     FileInputStream fis = null;
                     try {
-                        fis = new FileInputStream(file);
+                        fis = new FileInputStream(file.getPath());
                         Bitmap bitmap = BitmapFactory.decodeStream(fis);
                         mbitmaps.add(bitmap);
-                        image.setImageBitmap((Bitmap)msg.obj);
+                        mAdapter.notifyDataSetChanged();
+                        //image.setImageBitmap((Bitmap)msg.obj);
                     }catch (Exception e){
                         e.printStackTrace();
                     }
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mContext = this;
         setContentView(R.layout.activity_main);
-        image = (ImageView)findViewById(R.id.image);
+        //image = (ImageView)findViewById(R.id.image);
         initView();
     }
 
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter = new PictureAdapter(MainActivity.this,mbitmaps));
         mAdapter.notifyDataSetChanged();
+        //image = (ImageView)findViewById(R.id.image);
     }
 
     public void show(View view){
@@ -104,9 +106,6 @@ public class MainActivity extends AppCompatActivity {
                     fos.write(buffer,0,len);
                 }
                 fos.flush();
-                Message message = new Message();
-                message.obj = mbitmaps;
-                handler.sendMessage(message);
                 handler.sendEmptyMessage(LOAD_SUCCESS);
             }
         }catch (Exception e){
