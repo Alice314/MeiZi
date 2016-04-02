@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--我们先说下这个文件的命名，你看到了，它叫layout_appbar_main
+    先说它是个啥，它是个复用的布局，只有屏幕上方那一块，是个整体！！！
+    不要把下面的布局也写进来了，那根本别想复用，连分块的功能都不行
+    所以先说它是个layout，然后这个layout是啥，是个appbar
+    appbar是什么，就是屏幕上方那一块整体，所以toolbar和tabLayout应该是连在一起的
+    整个构成了一个appbar！！不然你appbar的阴影会把toolbar和tabLayout分开-->
+
+<android.support.design.widget.AppBarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/AppTheme.AppBarOverlay">
+
+    <!--AppBarLayout中的布局就不要嵌套什么LinearLayout了，它本来就是个竖直排列的LinearLayout-->
+
+    <!--android:elevation="4dp"-->
+    <!--这个属性不要轻易写，它是api21也就是android 5.0以上才能用的，不然报错
+        你可以新建一个'layout-v21'包来放你适配5.0以上布局的xml，这里就不写了-->
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/main_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/Theme.AppCompat.Light" />
+
+    <!--TabLayout外面不要包一层Layout了，它本身就是一个Layout-->
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/sliding_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark" />
+
+</android.support.design.widget.AppBarLayout>

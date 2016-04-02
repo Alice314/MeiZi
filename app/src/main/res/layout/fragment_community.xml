@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#df7a7a">
+
+    <!--内容布局，其实没必要这个也去分一个文件出来……不可能复用了，嘛、、如果你觉得看得清晰的话-->
+    <include layout="@layout/layout_content_community"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

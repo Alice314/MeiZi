@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--这个CoordinatorLayout会自己把AppBarLayout的内容放在其他内容上方，不用自己写layout_below了-->
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/coordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--include里面不需要限定宽和高，里面限定了的-->
+    <include layout="@layout/layout_appbar_main"/>
+
+    <!--android:background="#000000" 你给viewpager改颜色、、完全没意义，都被你Fragment覆盖了-->
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:flipInterval="30"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:persistentDrawingCache="animation">
+    </android.support.v4.view.ViewPager>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:background="@color/green"
+        android:src="@mipmap/ico_add"/>
+</android.support.design.widget.CoordinatorLayout>
