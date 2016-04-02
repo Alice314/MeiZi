@@ -71,7 +71,7 @@ public class GirlModel {
 
             @Override
             public void onError(Exception e) {
-                Message message = new Message();
+                Message message = Message.obtain();
                 message.what = LOAD_ERROR;
                 message.obj = "JSON请求失败: " + e.toString();
                 mMainHandler.sendMessage(message);
@@ -82,7 +82,7 @@ public class GirlModel {
     private void requestGirlsPics(String response) {
         picUrls = Utility.handlePictureResponse(response);
         for (int i = 0; i < picUrls.size(); i++) {
-            Message message = new Message();
+            Message message = Message.obtain();
             message.obj = null;
             message.what = LOAD_BITMAP;
             message.arg1 = -1;
@@ -95,7 +95,7 @@ public class GirlModel {
         HttpUtils.sendHttpRequestForBitmap(girlPicUrl, new HttpUtils.HttpForBitmapListener() {
             @Override
             public void onFinish(Bitmap bitmap) {
-                Message message = new Message();
+                Message message = Message.obtain();
                 message.obj = bitmap;
                 message.what = LOAD_BITMAP;
                 message.arg1 = position;
@@ -104,7 +104,7 @@ public class GirlModel {
 
             @Override
             public void onError(String e) {
-                Message message = new Message();
+                Message message = Message.obtain();
                 message.what = LOAD_ERROR;
                 message.obj = "第" + position + "张图片请求失败: " + e;
                 mMainHandler.sendMessage(message);
@@ -125,7 +125,7 @@ public class GirlModel {
 
             @Override
             public void onFail() {
-                Message message = new Message();
+                Message message = Message.obtain();
                 message.what = LOAD_ERROR;
                 message.obj = "第" + position + "张图片保存失败";
                 mMainHandler.sendMessage(message);
@@ -137,7 +137,7 @@ public class GirlModel {
         FileUtils.getFile(FILE_NAME + "_" + position + FILE_NAME_END, new FileUtils.GetImageListener() {
             @Override
             public void onSuccess(Bitmap bitmap) {
-                Message message = new Message();
+                Message message = Message.obtain();
                 message.obj = null;
                 message.what = LOAD_BITMAP;
                 message.arg1 = -1;
@@ -146,7 +146,7 @@ public class GirlModel {
 
             @Override
             public void onFail() {
-                Message message = new Message();
+                Message message = Message.obtain();
                 message.what = LOAD_ERROR;
                 message.obj = "第" + position + "张图片获取失败，开始下载";
                 mMainHandler.sendMessage(message);
