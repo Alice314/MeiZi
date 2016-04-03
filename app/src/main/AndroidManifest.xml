@@ -8,11 +8,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
+
         <activity android:name=".ui.activity.MainActivity">
-=======
-        <activity android:name=".MainActivity">
->>>>>>> ecad7f0eeb348cab7ea5b3aabb6804e2adc0c49f
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,10 +18,9 @@
             </intent-filter>
         </activity>
     </application>
-<<<<<<< HEAD
 
-=======
->>>>>>> ecad7f0eeb348cab7ea5b3aabb6804e2adc0c49f
+
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

@@ -4,11 +4,7 @@
     android:layout_height="match_parent">
     <ImageView
         android:id="@+id/image"
-<<<<<<< HEAD
         android:adjustViewBounds="true"
         android:layout_width="match_parent"
-=======
-        android:layout_width="wrap_content"
->>>>>>> ecad7f0eeb348cab7ea5b3aabb6804e2adc0c49f
         android:layout_height="wrap_content" />
 </FrameLayout>

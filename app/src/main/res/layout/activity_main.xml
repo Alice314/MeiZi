@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <android.support.v4.widget.DrawerLayout
     android:id="@+id/drawer_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -25,30 +24,9 @@
         app:menu="@menu/menu_main"/>
 
 </android.support.v4.widget.DrawerLayout>
-=======
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    tools:context="com.wusui.httppicturetest.MainActivity">
-    <android.support.v7.widget.RecyclerView
-       android:id="@+id/id_recyclerview"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
 
-    <Button
-        android:id="@+id/btn"
-        android:onClick="show"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="显示" />
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btn"/>
-</RelativeLayout>
->>>>>>> ecad7f0eeb348cab7ea5b3aabb6804e2adc0c49f
+
+
+
+
+

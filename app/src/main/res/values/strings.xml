@@ -1,10 +1,8 @@
 <resources>
     <string name="app_name">HttpPictureTest</string>
-<<<<<<< HEAD
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_search">Search</string>
-=======
->>>>>>> ecad7f0eeb348cab7ea5b3aabb6804e2adc0c49f
+
 </resources>
