@@ -2,6 +2,7 @@ package com.wusui.httppicturetest.ui.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +42,7 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.MyViewHo
             holder.imageView.setImageResource(R.mipmap.ic_launcher);
         }
     }
+
 
     @Override
     public int getItemCount() {

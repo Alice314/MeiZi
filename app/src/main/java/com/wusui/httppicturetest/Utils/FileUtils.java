@@ -2,6 +2,7 @@ package com.wusui.httppicturetest.Utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Environment;
 
 import java.io.ByteArrayInputStream;
@@ -39,13 +40,6 @@ public class FileUtils {
                 InputStream fis;
                 try {
                     final BitmapFactory.Options options = new BitmapFactory.Options();
-                   /* options.inJustDecodeBounds = true;
-                    BitmapFactory.decodeFile(file.getPath(), options);
-                    int reqWidth = options.outWidth;
-                    int reqHeight = options.outHeight;
-                    options.inSampleSize = calculateInSampleSize(options,reqWidth,reqHeight);
-                    options.inJustDecodeBounds = false;
-                    Bitmap bitmap = BitmapFactory.decodeFile(file.getPath(), options);*/
                     fis = new FileInputStream(file.getPath());
                     Bitmap bitmap = BitmapFactory.decodeStream(fis);
                     if (listener != null) {

@@ -1,9 +1,11 @@
+/*
 package com.wusui.httppicturetest.model;
 
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.support.v4.util.LruCache;
 
 import com.wusui.httppicturetest.Utils.FileUtils;
 import com.wusui.httppicturetest.Utils.HttpUtils;
@@ -12,9 +14,11 @@ import com.wusui.httppicturetest.Utils.Utility;
 import java.io.InputStream;
 import java.util.List;
 
+*/
 /**
  * TODO 下载与保存妹子图的逻辑，给你整个抽离出来了，这些逻辑fragment也是不关心的，其实还可以更优，以后再讲嘛，一口气也吃不成胖子
- */
+ *//*
+
 public class GirlModel {
 
     public interface GetGirlListener {
@@ -155,3 +159,4 @@ public class GirlModel {
         });
     }
 }
+*/
