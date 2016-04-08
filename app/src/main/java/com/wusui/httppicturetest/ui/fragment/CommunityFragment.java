@@ -2,9 +2,7 @@ package com.wusui.httppicturetest.ui.fragment;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -44,6 +42,7 @@ public class CommunityFragment extends Fragment {
     private List<String> picUrls;
     public static int page = 0;
 
+
     // TODO 你的handler应该对Fragment弱引用呀，你对Activity干啥呐,下面是正确示范，但是我已经把它抽离了，你不用管了
 
 
@@ -67,8 +66,12 @@ public class CommunityFragment extends Fragment {
                         //Toast.makeText(MainActivity.this,(String)msg.obj,Toast.LENGTH_SHORT).show();
                         break;
                     case LOAD_BITMAP:
-                        Bitmap bitmap = (Bitmap) msg.obj;
                         int position = msg.arg1;
+                        if (position == -1) {
+                            mBitmaps.add(null);
+                            return;
+                        }
+                        Bitmap bitmap = (Bitmap) msg.obj;
                         mBitmaps.set(position, bitmap);
                         mAdapter.notifyDataSetChanged();
                         break;
@@ -86,32 +89,6 @@ public class CommunityFragment extends Fragment {
 
 
     // TODO 在onCreate中做一些和视图数据无关的操作
-   /* @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mGirlModel = new GirlModel(new GirlModel.GetGirlListener() {
-            @Override
-            public void onLoadSuccess() {
-                Toast.makeText(getContext(), "网络加载成功", Toast.LENGTH_SHORT).show();
-                mAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onLoadError(String e) {
-                //Toast.makeText(MainActivity.this,(String)msg.obj,Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onLoadBitmap(Bitmap bitmap, int position) {
-                if (position == -1) {
-                    mBitmaps.add(null);
-                    return;
-                }
-                mBitmaps.set(position, bitmap);
-                mAdapter.notifyDataSetChanged();
-            }
-        });
-    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance){
@@ -136,12 +113,6 @@ public class CommunityFragment extends Fragment {
             }
         });
     }
-
-   /* public interface GetGirlListener {
-        void onLoadSuccess();
-        void onLoadError(String e);
-        void onLoadBitmap(Bitmap bitmap, int position);
-    }*/
 
     private void requestGankJson(int page) {
         String url = "http://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/" + page;
@@ -239,6 +210,7 @@ public class CommunityFragment extends Fragment {
             }
         });
     }
+
 }
 
 
