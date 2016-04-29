@@ -15,8 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.wusui.httppicturetest.ui.adapter.MyFragmentPagerAdapter;
 import com.wusui.httppicturetest.R;
+import com.wusui.httppicturetest.ui.adapter.MyFragmentPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mPageVp;
     private MyFragmentPagerAdapter pagerAdapter;
     private TabLayout tabLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,11 +1,12 @@
 package com.wusui.httppicturetest.ui.fragment;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ import com.wusui.httppicturetest.Utils.FileUtils;
 import com.wusui.httppicturetest.Utils.HttpUtils;
 import com.wusui.httppicturetest.Utils.Utility;
 import com.wusui.httppicturetest.callback.OnRcvScrollListener;
-
+import com.wusui.httppicturetest.ui.activity.DetailActivity;
 import com.wusui.httppicturetest.ui.adapter.PictureAdapter;
 
 import java.io.InputStream;
@@ -101,8 +102,7 @@ public class CommunityFragment extends Fragment {
     }
 
     private void initView() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        mRecyclerView.setLayoutManager(linearLayoutManager);
+        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         mRecyclerView.setAdapter(mAdapter = new PictureAdapter(getActivity(), mBitmaps));
         mRecyclerView.addOnScrollListener(new OnRcvScrollListener() {
             @Override
@@ -111,6 +111,16 @@ public class CommunityFragment extends Fragment {
                 Toast.makeText(getContext(), "滑动到底了", Toast.LENGTH_SHORT).show();
                 getPicture(++page);
             }
+        });
+        mAdapter.setmOnItemClickListener(new PictureAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent intent = new Intent(getContext(), DetailActivity.class);
+                intent.putExtra("bitmap",mBitmaps.get(position));
+                startActivity(intent);
+            }
+
+
         });
     }
 

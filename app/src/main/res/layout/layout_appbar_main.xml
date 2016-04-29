@@ -29,7 +29,6 @@
         app:popupTheme="@style/Theme.AppCompat.Light" />
 
     <!--TabLayout外面不要包一层Layout了，它本身就是一个Layout-->
-
     <android.support.design.widget.TabLayout
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"

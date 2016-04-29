@@ -2,7 +2,6 @@ package com.wusui.httppicturetest.ui.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +40,15 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.MyViewHo
 
             holder.imageView.setImageResource(R.mipmap.ic_launcher);
         }
+        if (mOnItemClickListener != null){
+           holder.imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = holder.getLayoutPosition();
+                    mOnItemClickListener.onItemClick(holder.imageView,pos);
+                }
+            });
+        }
     }
 
 
@@ -58,4 +66,14 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.MyViewHo
 
         }
     }
+
+    public interface OnItemClickListener{
+        void onItemClick(View view,int position);
+
+    }
+    private OnItemClickListener mOnItemClickListener;
+    public void setmOnItemClickListener(OnItemClickListener mOnItemClickListener){
+        this.mOnItemClickListener = mOnItemClickListener;
+    }
+
 }
